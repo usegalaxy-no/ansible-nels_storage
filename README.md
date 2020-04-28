@@ -29,7 +29,7 @@ Note that this role will _not_ create any new directories, so all the locations 
 - `nels_storage_config_dir`: Directory on the Galaxy server where the configuration file will be installed. 
    This ***must*** be the same directory as the magic `$GALAXY_DATA_INDEX_DIR` variable available to tool wrappers, which is configured by the "tool_data_path" setting in "galaxy.yml" (normally "tool-data/").
 - `nels_storage_tool_conf_dir` (optional): If provided, a tool config file named "nels_tool_conf.xml" containing entries for the import and export tools will be placed in this directory.
-   This file can then be added to the "tool_config_file`" setting in "galaxy.yml" .
+   This file can then be added to the "tool_config_file" list in "galaxy.yml" .
 
 
 ### NeLS Storage configuration ###
