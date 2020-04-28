@@ -11,6 +11,11 @@ One convenient way is to set the optional "nels_storage_tool_conf_dir" variable.
 [galaxyproject]: https://galaxyproject.org/
 [nelsportal]: https://nels.bioinfo.no/
 
+in requirements:
+
+    - src: https://github.com/usegalaxy-no/ansible-role-tos-api.git
+      name: usegalaxy-no.tos-api
+
 Role Variables
 --------------
 
