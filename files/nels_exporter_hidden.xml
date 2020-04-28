@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<tool name="Send files" id="nels_exporter_hidden" hidden="true">
+    <description>to NeLS storage (hidden)</description>
+    <command interpreter="python">
+        nels_exporter.py
+	    ${GALAXY_DATA_INDEX_DIR}
+            "$selectedFiles"
+	    $nelsId
+            $out_file1 
+	    ${hist_file} "${hist_file.name}" "${hist_file.ext}"
+            #for $s in $files:
+                ${s.extra_hist_file} "${s.extra_hist_file.name}" "${s.extra_hist_file.ext}"
+            #end for
+    </command>
+    <inputs>
+       <param  name="selectedFiles" type="text" label="File path on NELS" size="30" />
+        <param  name="nelsId" type="text" label="NELS Id"><validator type="expression" message="Only digits allowed for NeLS ID">value.isdigit()</validator>
+       </param>
+         <param format="data" name="hist_file" type="data" label="Send this dataset to NeLS" />
+        <repeat name="files" title="file to upload">
+            <param format="data" name="extra_hist_file" type="data" label="Send this dataset to NeLS" />
+        </repeat>
+      
+    </inputs>
+    <request_param_translation>
+      <request_param galaxy_name="selectedFiles" remote_name="selectedFiles" missing=""/>
+      <request_param galaxy_name="nelsId" remote_name="nelsId" missing=""/>
+   </request_param_translation>
+   <outputs>
+    <data format="html" name="out_file1" />
+  </outputs>
+    
+</tool>

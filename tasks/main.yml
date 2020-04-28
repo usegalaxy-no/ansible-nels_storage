@@ -1,0 +1,38 @@
+---
+- name: Install NeLS import tool (wrapper)
+  template:
+    src: nels_importer.xml.j2
+    dest: "{{ nels_storage_import_tool_dir }}/nels_importer.xml"
+
+- name: Install NeLS import tool (script)
+  copy:
+    src: nels_importer.py
+    dest: "{{ nels_storage_import_tool_dir }}/nels_importer.py"
+
+- name: Install NeLS export tool (wrapper)
+  template:
+    src: nels_exporter.xml.j2
+    dest: "{{ nels_storage_export_tool_dir }}/nels_exporter.xml"
+
+- name: Install NeLS export tool (hidden wrapper)
+  copy:
+    src: nels_exporter_hidden.xml
+    dest: "{{ nels_storage_export_tool_dir }}/nels_exporter_hidden.xml"
+
+- name: Install NeLS export tool (script)
+  copy:
+    src: nels_exporter.py
+    dest: "{{ nels_storage_export_tool_dir }}/nels_exporter.py"
+
+- name: Create NeLS Storage configuration file
+  template:
+    src:  nels_storage_config.loc.j2
+    dest: "{{ nels_storage_config_dir }}/nels_storage_config.loc"
+    mode: "0440"
+
+- name: Create "nels_tool_conf.xml" file for NeLS Storage tools
+  template:
+    src:  nels_tool_conf.xml.j2
+    dest: "{{ nels_storage_tool_conf_dir }}/nels_tool_conf.xml"
+  when: nels_storage_tool_conf_dir is defined
+

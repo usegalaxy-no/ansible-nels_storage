@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<tool name="Get files" id="nels_file_browser" tool_type="data_source" force_history_refresh="True" version="0.0.1" profile="16.10">
+    <description>from NeLS storage</description>
+    <command>python $__tool_directory__/nels_importer.py --galaxy_tool_data_dir ${GALAXY_DATA_INDEX_DIR} --json_parameter_file "${output}"</command>
+    <inputs action="{{ nels_storage_url }}" check_values="False" method="post">
+        <display>go to NELS Data Manager </display>
+        <param name="appCallbackUrl" type="baseurl" value="/tool_runner?tool_id=nels_file_browser&amp;runtool_btn=Execute" />
+        <param name="appName" type="hidden" value="Galaxy" />
+    </inputs>
+    <uihints minwidth="800"/>
+    <outputs>
+        <data name="output" format="auto">
+            <discover_datasets pattern="__default__"  />
+        </data>
+    </outputs>
+    <options sanitize="False" refresh="True"/>
+</tool>
