@@ -2,9 +2,10 @@ NeLS Storage import/export tools
 ================================
 
 An [Ansible][ansible] role for installing and configuring tools for transferring datasets between the [NeLS Storage][nelsportal] and a [Galaxy][galaxyproject] server.
-The role will install two tools (import and export) plus a common configuration file which must be configured against either the production or test storage using variables described below.The file permissions for the configuration file will be '440', but it must be readable by the system user that runs the tool jobs.
+The role will install two tools (import and export) plus a common configuration file which must be configured against either the production or test storage using variables described below.
+The file permissions for the configuration file will be '440', but it must be readable by the system user that runs the tool jobs.
 Note that the role will not automatically add the new tools to any of Galaxy's toolbox configuration files, so this must be handled in another way.
-One convenient way is to set the optional "nels_storage_tool_conf_dir" variable. This will then create a new toolbox configuration file which can then be referenced in `galaxy.yml`.
+One convenient way is to set the optional "nels_storage_tool_conf_dir" variable. This will then create a new toolbox configuration file which can be referenced in `galaxy.yml`.
 
 [ansible]: http://www.ansible.com/
 [galaxyproject]: https://galaxyproject.org/
