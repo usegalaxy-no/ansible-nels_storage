@@ -1,4 +1,12 @@
 ---
+- name: Create tool directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+  - "{{ nels_storage_import_tool_dir }}"
+  - "{{ nels_storage_export_tool_dir }}"
+
 - name: Install NeLS import tool (wrapper)
   template:
     src: nels_importer.xml.j2
