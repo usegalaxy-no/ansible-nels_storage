@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool name="Send files" id="nels_exporter_hidden" hidden="true">
-    <description>to NeLS storage (hidden)</description>
+    <description>to NeLS storage</description>
     <command interpreter="python">
         nels_exporter.py
 	    ${GALAXY_DATA_INDEX_DIR}
@@ -13,8 +13,8 @@
             #end for
     </command>
     <inputs>
-       <param  name="selectedFiles" type="text" label="File path on NELS" size="30" />
-        <param  name="nelsId" type="text" label="NELS Id"><validator type="expression" message="Only digits allowed for NeLS ID">value.isdigit()</validator>
+       <param  name="selectedFiles" type="hidden" label="File path on NELS" size="30" />
+        <param  name="nelsId" type="hidden" label="NELS Id"><validator type="expression" message="Only digits allowed for NeLS ID">value.isdigit()</validator>
        </param>
          <param format="data" name="hist_file" type="data" label="Send this dataset to NeLS" />
         <repeat name="files" title="file to upload">
